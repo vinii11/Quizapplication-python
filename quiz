@@ -1,0 +1,136 @@
+from tkinter import *
+
+def open_quiz():
+    user_name = e1.get()
+    registration_id = e2.get()
+    user_section = e3.get()
+    
+    if not user_name or not registration_id or not user_section:
+        return
+
+    # Close the details window
+    details_window.destroy()
+
+    # Open the quiz window
+    quiz_window = Tk()
+    quiz_window.geometry("600x1000")
+    quiz_window.title("Quiz Application")
+
+    Label(quiz_window, text="WELCOME TO THE QUIZ GAME", fg="orange", font=("Helvetica", 20)).place(x=30, y=10)
+
+    # Question 1
+    ques1 = Label(quiz_window, text="Question 1:")
+    ques1.place(x=30, y=80)
+    q1 = Label(quiz_window, text="Dictionary in Python is represented by which of the following?")
+    q1.place(x=50, y=100)
+    var1 = IntVar()
+    R1 = Radiobutton(quiz_window, text="()", value=1, variable=var1)
+    R1.place(x=60, y=120)
+    R2 = Radiobutton(quiz_window, text="{}", value=2, variable=var1)
+    R2.place(x=60, y=140)
+    R3 = Radiobutton(quiz_window, text="[]", value=3, variable=var1)
+    R3.place(x=60, y=160)
+    R4 = Radiobutton(quiz_window, text="None of these", value=4, variable=var1)
+    R4.place(x=60, y=180)
+
+    # Question 2
+    ques2 = Label(quiz_window, text="Question 2:")
+    ques2.place(x=30, y=220)
+    q2 = Label(quiz_window, text="The output of the following code is")
+    q2.place(x=50, y=240)
+    q = Label(quiz_window, text="print(5*8)", fg="green")
+    q.place(x=70, y=260)
+    var2 = IntVar()
+    R5 = Radiobutton(quiz_window, text="40", value=5, variable=var2)
+    R5.place(x=60, y=280)
+    R6 = Radiobutton(quiz_window, text="0", value=6, variable=var2)
+    R6.place(x=60, y=300)
+    R7 = Radiobutton(quiz_window, text="8", value=7, variable=var2)
+    R7.place(x=60, y=320)
+    R8 = Radiobutton(quiz_window, text="50", value=8, variable=var2)
+    R8.place(x=60, y=340)
+
+    # Question 3
+    ques3 = Label(quiz_window, text="Question 3:")
+    ques3.place(x=30, y=380)
+    q3 = Label(quiz_window, text="Which of the following is used to print a statement in Python?")
+    q3.place(x=50, y=400)
+    var3 = IntVar()
+    R9 = Radiobutton(quiz_window, text="printf", value=9, variable=var3)
+    R9.place(x=60, y=420)
+    R10 = Radiobutton(quiz_window, text="print", value=10, variable=var3)
+    R10.place(x=60, y=440)
+    R11 = Radiobutton(quiz_window, text="cin", value=11, variable=var3)
+    R11.place(x=60, y=460)
+    R12 = Radiobutton(quiz_window, text="scanf", value=12, variable=var3)
+    R12.place(x=60, y=480)
+
+    # Question 4
+    ques4 = Label(quiz_window, text="Question 4:")
+    ques4.place(x=30, y=520)
+    q4 = Label(quiz_window, text="Which symbol is used to insert comments in Python?")
+    q4.place(x=50, y=540)
+    var4 = IntVar()
+    R13 = Radiobutton(quiz_window, text="/*/", value=13, variable=var4)
+    R13.place(x=60, y=560)
+    R14 = Radiobutton(quiz_window, text="/*", value=14, variable=var4)
+    R14.place(x=60, y=580)
+    R15 = Radiobutton(quiz_window, text="*", value=15, variable=var4)
+    R15.place(x=60, y=600)
+    R16 = Radiobutton(quiz_window, text="#", value=16, variable=var4)
+    R16.place(x=60, y=620)
+
+    # Question 5
+    ques5 = Label(quiz_window, text="Question 5:")
+    ques5.place(x=30, y=660)
+    q5 = Label(quiz_window, text="The output of the below code is")
+    q5.place(x=50, y=680)
+    x1 = Label(quiz_window, text="s=(1,4,7,3)", fg="green")
+    x1.place(x=70, y=700)
+    x2 = Label(quiz_window, text="len(s)", fg="blue")
+    x2.place(x=70, y=720)
+    var5 = IntVar()
+    R17 = Radiobutton(quiz_window, text="0", value=17, variable=var5)
+    R17.place(x=60, y=740)
+    R18 = Radiobutton(quiz_window, text="4", value=18, variable=var5)
+    R18.place(x=60, y=760)
+    R19 = Radiobutton(quiz_window, text="8", value=19, variable=var5)
+    R19.place(x=60, y=780)
+    R20 = Radiobutton(quiz_window, text="None of these", value=20, variable=var5)
+    R20.place(x=60, y=800)
+
+    Button(quiz_window, text="Submit", fg="white", bg="green", command=submit_action).place(x=250, y=840)
+
+    quiz_window.mainloop()
+
+def reset_form():
+    e1.delete(0, END)
+    e2.delete(0, END)
+    e3.delete(0, END)
+
+def submit_action():
+    print(f"Answer 1: {var1.get()}")
+    print(f"Answer 2: {var2.get()}")
+    print(f"Answer 3: {var3.get()}")
+    print(f"Answer 4: {var4.get()}")
+    print(f"Answer 5: {var5.get()}")
+
+details_window = Tk()
+details_window.geometry("300x300")
+details_window.title("User Details Form")
+
+Label(details_window, text="Name").place(x=30, y=50)
+Label(details_window, text="RegistrationId").place(x=30, y=90)
+Label(details_window, text="Section").place(x=30, y=130)
+
+e1 = Entry(details_window, width=20)
+e1.place(x=130, y=50)
+e2 = Entry(details_window, width=20)
+e2.place(x=130, y=90)
+e3 = Entry(details_window, width=20)
+e3.place(x=130, y=130)
+
+Button(details_window, text="Submit", fg="black", bg="Green", command=open_quiz).place(x=100, y=200)
+Button(details_window, text="Reset", fg="black", bg="blue", command=reset_form).place(x=180, y=200)
+
+details_window.mainloop()
