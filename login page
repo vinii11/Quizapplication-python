@@ -1,0 +1,12 @@
+from tkinter import *
+quiz = Tk()
+quiz.geometry("300x1500")
+name = Label(quiz, text = "Name").place(x = 30,y = 50)
+registration = Label(quiz, text = "RegistrationId").place(x = 30,y = 90)
+section = Label(quiz, text = "Section").place(x = 30,y = 130)
+submitbutton = Button(quiz, text = "Submit",fg = "black",bg = "Green").place(x = 100,y = 200)
+resetbutton = Button(quiz, text = "Reset",fg = "black",bg = "blue").place(x = 180,y = 200)
+e1=Entry(quiz,width = 20).place(x = 130,y = 50)
+e2=Entry(quiz,width = 20).place(x = 130,y = 90)
+e3=Entry(quiz,width = 20).place(x = 130,y = 130)
+quiz.mainloop()
